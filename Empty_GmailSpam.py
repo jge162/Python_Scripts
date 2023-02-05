@@ -29,3 +29,9 @@ try:
 
 except HttpError as error:
     print(f'An error occurred: {error}')
+
+"""
+pip install google-api-python-client
+pip3 install google-auth google-api-python-client
+
+"""
