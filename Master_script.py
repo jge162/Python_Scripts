@@ -1,6 +1,4 @@
 import subprocess
-import pandas as pd
-import requests
 
 
 # List of scripts to run
