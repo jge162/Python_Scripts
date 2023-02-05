@@ -1,12 +1,14 @@
 import imaplib
+import os
+import json
 
+with open(os.path.expanduser("~/.credentials/icloud-python-quickstart.json"), 'r') as f:
+  data = json.load(f)
 # Replace the placeholders with your iCloud email address and password
-username = "your_email@icloud.com"
-password = "your_password"
 
 # Connect to iCloud's IMAP server
 imap = imaplib.IMAP4_SSL("imap.mail.me.com")
-imap.login(username, password)
+imap.login(data['username'], data['password'])
 
 # Select the spam folder
 imap.select("Spam", readonly=False)
