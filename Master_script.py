@@ -1,5 +1,5 @@
 import subprocess
-import sys.argv
+import sys
 
 # Run each script
 for script in sys.argv[2:]:
