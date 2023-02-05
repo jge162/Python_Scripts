@@ -13,7 +13,7 @@ def get_stock_tickers():
 
 
 def get_stock_prices(ticker_list):
-    API_KEY = 'API_KEY_HERE'
+    API_KEY = 'YOU_API_HERE'
     for ticker in ticker_list:
         url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={API_KEY}"
         response = requests.get(url)
@@ -22,8 +22,12 @@ def get_stock_prices(ticker_list):
 
 
 def main():
+    print("================================")
+    print("Stock Scrapper: Run Successfully")
+    print("================================")
     all_tickers = get_stock_tickers()
     get_stock_prices(all_tickers)
+    print("================================")
 
 
 if __name__ == '__main__':
@@ -34,4 +38,15 @@ pip install pandas
 pip install lxml
 sudo python3 /Users/home/Documents/GitHub/Python_Scripts/Stock_Scrapper.py
 Go to this website to get free API key https://www.alphavantage.co/support/#api-key
+
+output ->
+================================
+Stock Scrapper: Run Successfully
+================================
+AAPL is 154.5000
+TSLA is 189.9800
+WFC is 47.5800
+KO is 59.8300
+BAC is 36.4300
+================================
 """

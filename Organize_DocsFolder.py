@@ -32,7 +32,9 @@ for filename in os.listdir(src_dir):
     # move the file to the target folder
     src_path = os.path.join(src_dir, filename)
     shutil.move(src_path, os.path.join(target_path, filename))
-    print("Files organized successfully")
+    print("=================================")
+    print("= Files organized: successfully =")
+    print("=================================")
 
 """
 sudo python3 /Users/home/Documents/GitHub/Python_Scripts/Organize_DocsFolder.py

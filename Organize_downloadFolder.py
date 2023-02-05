@@ -50,17 +50,13 @@ for filename in os.listdir(downloads_folder):
         # Move the file to the subfolder
         file_path = os.path.join(downloads_folder, filename)
         shutil.move(file_path, os.path.join(subfolder_path, filename))
-
-print("Downloads folder organized.")
+print("============================================")
+print("= Downloads folder organized: Successfully =")
+print("============================================")
 
 """
 run these commands in terminal of host computer
 sudo python3 /Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py
-python3 /Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py
-chmod +x /Users/home/Downloads
-
-output ->
-Password:
-Downloads folder organized.
+chmod +x /Users/home/Downloads - use this to fix permissions in Mac
 """
 

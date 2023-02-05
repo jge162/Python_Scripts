@@ -5,7 +5,9 @@ import os
 def clear_dns_cache():
     try:
         subprocess.call(["dscacheutil", "-flushcache"])
-        print("DNS cache cleared successfully.")
+        print("===================================")
+        print("= DNS cache cleared successfully. =")
+        print("===================================")
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -15,7 +17,10 @@ def empty_trash():
         home = os.path.expanduser("~")
         trash = os.path.join(home, ".Trash")
         subprocess.call(["rm", "-rf", trash + "/*"])
-        print("Trash bin emptied successfully.")
+        print("===================================")
+        print("= Trash bin emptied successfully. =")
+        print("===================================")
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
