@@ -1,12 +1,13 @@
 import imapclient
-
+import json
+import os
 # Replace the placeholders with your Hotmail email address and password
-username = "your_email@hotmail.com"
-password = "your_password"
-
+with open(os.path.expanduser("~/.credentials/gmail-python-quickstart.json"), 'rb') as f:
+  data = json.load(f)
+  
 # Connect to Hotmail's IMAP server
 imap = imapclient.IMAPClient("imap-mail.outlook.com", ssl=True)
-imap.login(username, password)
+imap.login(data['username'], data['password'])
 
 # Select the inbox and spam folders
 imap.select_folder("inbox", readonly=False)
