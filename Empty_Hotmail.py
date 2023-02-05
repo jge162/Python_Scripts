@@ -2,7 +2,7 @@ import imapclient
 import json
 import os
 # Replace the placeholders with your Hotmail email address and password
-with open(os.path.expanduser("~/.credentials/gmail-python-quickstart.json"), 'rb') as f:
+with open(os.path.expanduser("~/.credentials/hotmail-python-quickstart.json"), 'r') as f:
   data = json.load(f)
   
 # Connect to Hotmail's IMAP server
