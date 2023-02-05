@@ -4,7 +4,8 @@ import subprocess
 scripts = ['/Users/home/Documents/GitHub/Python_Scripts/OpenChrome_Favorites.py',
            '/Users/home/Documents/GitHub/Python_Scripts/Organize_DocsFolder.py',
            '/Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py',
-           '/Users/home/Documents/GitHub/Python_Scripts/ClearDNS_EmptyTrash.py']
+           '/Users/home/Documents/GitHub/Python_Scripts/ClearDNS_EmptyTrash.py',
+           '/Users/home/Documents/GitHub/Python_Scripts/Stock_Scrapper.py']
 
 # Run each script
 for script in scripts:
