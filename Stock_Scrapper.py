@@ -33,5 +33,5 @@ if __name__ == '__main__':
 pip install pandas
 pip install lxml
 sudo python3 /Users/home/Documents/GitHub/Python_Scripts/Stock_Scrapper.py
-Go to this website to get free API key https://www.alphavantage.co/support/#api-key
+Go to this website to get free [API key](https://www.alphavantage.co)
 """
