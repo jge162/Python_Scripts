@@ -55,8 +55,8 @@ print("Downloads folder organized.")
 
 """
 run these commands in terminal of host computer
-sudo python3 /Users/home/Documents/GitHub/OOP_in_Python/download_script.py
-python3 /Users/home/Documents/GitHub/OOP_in_Python/download_script.py
+sudo python3 /Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py
+python3 /Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py
 chmod +x /Users/home/Downloads
 
 output ->

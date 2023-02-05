@@ -25,12 +25,12 @@ if __name__ == "__main__":
     empty_trash()
 
 """
-sudo python3 /Users/home/Documents/GitHub/OOP_in_Python/ClearDNS_EmptyTrashBin.py
+sudo python3 /Users/home/Documents/GitHub/Python_Scripts/ClearDNS_EmptyTrashBin.py
 """
 
 """
 output below
-sudo python3 /Users/home/Documents/GitHub/OOP_in_Python/ClearDNS_EmptyTrashBin.py
+sudo python3 /Users/home/Documents/GitHub/Python_Scripts/ClearDNS_EmptyTrashBin.py
 
 DNS cache cleared successfully.
 Trash bin emptied successfully.

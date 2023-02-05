@@ -1,14 +1,15 @@
 import webbrowser
 
 favorites = [
-    "https://www.github.com",
+    "https://github.com/jge162",
     "https://www.youtube.com",
     "https://www.macrumors.com",
-    "https://www.twitter.com",
-    "https://www.mailonline.com",
+    "https://www.dailymail.co.uk/ushome/index.html",
 ]
 
-chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
-
 for url in favorites:
-    webbrowser.get(chrome_path).open(url)
+    webbrowser.open(url, new=2, autoraise=True)
+
+"""
+sudo python3 /Users/home/Documents/GitHub/Python_Scripts/OpenChrome_Favorites.py
+"""
