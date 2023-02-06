@@ -1,9 +1,9 @@
 import subprocess
 
 # List of scripts to run
-scripts = [# '/Users/home/Documents/GitHub/Python_Scripts/OpenChrome_Favorites.py',
-           # '/Users/home/Documents/GitHub/Python_Scripts/Organize_DocsFolder.py',
-           # '/Users/home/Documents/GitHub/Python_Scripts/Stock_Scrapper.py',
+scripts = ['/Users/home/Documents/GitHub/Python_Scripts/OpenChrome_Favorites.py',
+           '/Users/home/Documents/GitHub/Python_Scripts/Organize_DocsFolder.py',
+           '/Users/home/Documents/GitHub/Python_Scripts/Stock_Scrapper.py',
            '/Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py',
            '/Users/home/Documents/GitHub/Python_Scripts/ClearDNS_EmptyTrash.py']
 
