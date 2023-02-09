@@ -32,7 +32,7 @@ for filename in os.listdir(src_dir):
     if not os.path.exists(target_path):
         os.makedirs(target_path)
 
-    # move the file to the target folder
+    # move the file to the target folders
     src_path = os.path.join(src_dir, filename)
     shutil.move(src_path, os.path.join(target_path, filename))
     print("=================================")
