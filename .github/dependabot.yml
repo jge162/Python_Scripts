@@ -5,7 +5,13 @@ updates:
     schedule:
       interval: 'weekly'
       day: 'friday'
-  - package-ecosystem: 'pip'
-    directory: '/'
+  - package-ecosystem: "pip"
+    directory: "/"
     schedule:
-      interval: 'daily'
+      interval: "daily"
+    schedule:
+      interval: "daily"
+    dependencies:
+      - package-name: "requests"
+        version-scheme: "pessimistic"
+        version: "^2.24.0"
