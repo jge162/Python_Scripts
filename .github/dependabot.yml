@@ -6,12 +6,7 @@ updates:
       interval: 'weekly'
       day: 'friday'
     - package-ecosystem: "pip"
-    schedule:
-      interval: "daily"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "dependencies"
-    file-glob: "requirements.txt"
-    version-scheme: "pypi-latest"
+      directory: '/'
+      schedule:
+        interval: "daily"
+
