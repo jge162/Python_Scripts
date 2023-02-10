@@ -4,4 +4,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      day: 'thursday'
+      day: 'friday'
+  - package-ecosystem: 'pip'
+    directory: '/'
+    schedule:
+      interval: 'daily'
