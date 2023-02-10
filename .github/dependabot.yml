@@ -5,13 +5,13 @@ updates:
     schedule:
       interval: 'weekly'
       day: 'friday'
-  - package-ecosystem: "pip"
+    - package-ecosystem: "pip"
+    schedule:
+      interval: "daily"
     directory: "/"
     schedule:
       interval: "daily"
-    schedule:
-      interval: "daily"
-    dependencies:
-      - package-name: "requests"
-        version-scheme: "pessimistic"
-        version: "^2.24.0"
+    labels:
+      - "dependencies"
+    file-glob: "requirements.txt"
+    version-scheme: "pypi-latest"
