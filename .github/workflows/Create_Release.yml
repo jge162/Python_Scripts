@@ -14,28 +14,29 @@ jobs:
     steps:
     - name: Check if pull request was merged
       id: check-if-merged
-      uses: actions/filter@v2
-      with:
-        args: merged
-        pull_request_action: closed
-        pull_request_merged: true
+      run: |
+        if [ "${{ github.event.pull_request.merged }}" = true ]; then
+          echo "::set-env name=PULL_REQUEST_MERGED::true"
+        else
+          echo "::set-env name=PULL_REQUEST_MERGED::false"
+        fi
 
     - name: Get latest release
       id: latest-release
-      uses: actions/bin/filter@v1
+      uses: actions/bin/sh@v1
       with:
-        args: latest
-        ref: releases
-        tags: true
+        args: |
+          latest=$(git describe --abbrev=0 --tags)
+          echo "::set-env name=LATEST_RELEASE::$latest"
 
     - name: Increment release version
       id: increment-version
       run: |
-        NEW_TAG=$(echo $GITHUB_REF | sed "s/$RELEASE_TAG.*/$RELEASE_TAG.$(($(echo $GITHUB_REF | sed "s/.*$RELEASE_TAG.//") + 1))/")
+        NEW_TAG=$(echo $LATEST_RELEASE | sed "s/$RELEASE_TAG.*/$RELEASE_TAG.$(($(echo $LATEST_RELEASE | sed "s/.*$RELEASE_TAG.//") + 1))/")
         echo "::set-env name=NEW_TAG::$NEW_TAG"
 
     - name: Create release
-      if: steps.check-if-merged.outputs.matches == 'true'
+      if: env.PULL_REQUEST_MERGED == 'true'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
