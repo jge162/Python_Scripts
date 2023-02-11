@@ -1,0 +1,46 @@
+name: Create Release
+
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  RELEASE_TAG: v0.3
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check if pull request was merged
+      id: check-if-merged
+      uses: actions/bin/filter@v1
+      with:
+        args: merged
+        pull_request_action: closed
+        pull_request_merged: true
+
+    - name: Get latest release
+      id: latest-release
+      uses: actions/bin/filter@v1
+      with:
+        args: latest
+        ref: releases
+        tags: true
+
+    - name: Increment release version
+      id: increment-version
+      run: |
+        NEW_TAG=$(echo $GITHUB_REF | sed "s/$RELEASE_TAG.*/$RELEASE_TAG.$(($(echo $GITHUB_REF | sed "s/.*$RELEASE_TAG.//") + 1))/")
+        echo "::set-env name=NEW_TAG::$NEW_TAG"
+
+    - name: Create release
+      if: steps.check-if-merged.outputs.matches == 'true'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.NEW_TAG }}
+        release_name: Release ${{ env.NEW_TAG }}
+        draft: false
+        prerelease: false
