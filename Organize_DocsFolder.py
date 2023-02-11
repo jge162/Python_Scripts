@@ -13,6 +13,9 @@ extension_to_folder_map = {
     '.xlsx': 'Excel Files',
     '.ppt': 'PowerPoint Files',
     '.pptx': 'PowerPoint Files',
+    '.png': 'PNG Files',
+    '.rtf': 'RTF Files'
+
 }
 
 for filename in os.listdir(src_dir):
@@ -20,7 +23,7 @@ for filename in os.listdir(src_dir):
     name, ext = os.path.splitext(filename)
 
     # get the target folder name for the file
-    target_folder = extension_to_folder_map.get(ext, 'Other Files')
+    target_folder = extension_to_folder_map.get(ext, 'Document Files')
 
     # construct the path to the target folder
     target_path = os.path.join(src_dir, target_folder)
@@ -29,10 +32,12 @@ for filename in os.listdir(src_dir):
     if not os.path.exists(target_path):
         os.makedirs(target_path)
 
-    # move the file to the target folder
+    # move the file to the target folders
     src_path = os.path.join(src_dir, filename)
     shutil.move(src_path, os.path.join(target_path, filename))
-    print("Files organized successfully")
+    print("=================================")
+    print("= Files organized: successfully =")
+    print("=================================")
 
 """
 sudo python3 /Users/home/Documents/GitHub/Python_Scripts/Organize_DocsFolder.py

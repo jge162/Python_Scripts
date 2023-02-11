@@ -1,0 +1,12 @@
+version: 2 # dependabot
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'friday'
+  - package-ecosystem: 'pip'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+

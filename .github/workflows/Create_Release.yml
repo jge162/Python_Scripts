@@ -1,0 +1,55 @@
+name: Create Release
+
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  RELEASE_TAG: v0.3
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check if pull request was merged
+      id: check-if-merged
+      uses: actions/bin/sh@v2
+      with:
+        args: |
+          if [ "$(jq '.pull_request.merged' "$GITHUB_EVENT_PATH")" == "true" ]; then
+            echo "true"
+          else
+            echo "false"
+          fi
+        env:
+          GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
+
+    - name: Get latest release
+      id: latest-release
+      uses: actions/bin/sh@v2
+      with:
+        args: |
+          latest_release=$(git describe --tags --abbrev=0)
+          echo "::set-output name=latest_release::$latest_release"
+        env:
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
+
+    - name: Increment release version
+      id: increment-version
+      uses: actions/bin/sh@v2
+      with:
+        args: |
+          NEW_TAG=$(echo ${{ env.RELEASE_TAG }}.$(($(echo "${{ steps.latest-release.outputs.latest_release }}" | sed "s/.*${{ env.RELEASE_TAG }}\.//") + 1)))
+          echo "::set-env name=NEW_TAG::$NEW_TAG"
+
+    - name: Create release
+      if: steps.check-if-merged.outputs.stdout == 'true'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.NEW_TAG }}
+        release_name: Release ${{ env.NEW_TAG }}
+        draft: false
+        prerelease: false
