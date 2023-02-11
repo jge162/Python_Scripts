@@ -14,28 +14,37 @@ jobs:
     steps:
     - name: Check if pull request was merged
       id: check-if-merged
-      run: |
-        if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
-          echo "::set-output name=matches::true"
-        else
-          echo "::set-output name=matches::false"
-        fi
+      uses: actions/bin/sh@v2
+      with:
+        args: |
+          if [ "$(jq '.pull_request.merged' "$GITHUB_EVENT_PATH")" == "true" ]; then
+            echo "true"
+          else
+            echo "false"
+          fi
+        env:
+          GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
 
     - name: Get latest release
       id: latest-release
-      run: |
-        latest_release=$(git describe --tags --abbrev=0)
-        echo "::set-output name=latest_release::$latest_release"
+      uses: actions/bin/sh@v2
+      with:
+        args: |
+          latest_release=$(git describe --tags --abbrev=0)
+          echo "::set-output name=latest_release::$latest_release"
+        env:
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
 
     - name: Increment release version
       id: increment-version
-      run: |
-        version_number=$(echo ${{ steps.latest_release.outputs.latest_release }} | sed "s/$RELEASE_TAG.//")
-        NEW_TAG="$RELEASE_TAG.$((version_number + 1))"
-        echo "::set-env name=NEW_TAG::$NEW_TAG"
+      uses: actions/bin/sh@v2
+      with:
+        args: |
+          NEW_TAG=$(echo ${{ env.RELEASE_TAG }}.$(($(echo "${{ steps.latest-release.outputs.latest_release }}" | sed "s/.*${{ env.RELEASE_TAG }}\.//") + 1)))
+          echo "::set-env name=NEW_TAG::$NEW_TAG"
 
     - name: Create release
-      if: steps.check-if-merged.outputs.matches == 'true'
+      if: steps.check-if-merged.outputs.stdout == 'true'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
