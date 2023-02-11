@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Check if pull request was merged
       id: check-if-merged
-      uses: actions/bin/filter@v1
+      uses: actions/filter@v2
       with:
         args: merged
         pull_request_action: closed
