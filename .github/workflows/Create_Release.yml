@@ -2,7 +2,7 @@ name: Create Release
 
 on:
   pull_request:
-    types: [closed, opened]
+    types: [closed]
 
 env:
   RELEASE_TAG: v0.3
@@ -15,28 +15,27 @@ jobs:
     - name: Check if pull request was merged
       id: check-if-merged
       run: |
-        if [ "${{ github.event.pull_request.merged }}" = true ]; then
-          echo "::set-env name=PULL_REQUEST_MERGED::true"
+        if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
+          echo "::set-output name=matches::true"
         else
-          echo "::set-env name=PULL_REQUEST_MERGED::false"
+          echo "::set-output name=matches::false"
         fi
 
     - name: Get latest release
       id: latest-release
-      uses: actions/bin/sh@v1
-      with:
-        args: |
-          latest=$(git describe --abbrev=0 --tags)
-          echo "::set-env name=LATEST_RELEASE::$latest"
+      run: |
+        latest_release=$(git describe --tags --abbrev=0)
+        echo "::set-output name=latest_release::$latest_release"
 
     - name: Increment release version
       id: increment-version
       run: |
-        NEW_TAG=$(echo $LATEST_RELEASE | sed "s/$RELEASE_TAG.*/$RELEASE_TAG.$(($(echo $LATEST_RELEASE | sed "s/.*$RELEASE_TAG.//") + 1))/")
+        version_number=$(echo ${{ steps.latest_release.outputs.latest_release }} | sed "s/$RELEASE_TAG.//")
+        NEW_TAG="$RELEASE_TAG.$((version_number + 1))"
         echo "::set-env name=NEW_TAG::$NEW_TAG"
 
     - name: Create release
-      if: env.PULL_REQUEST_MERGED == 'true'
+      if: steps.check-if-merged.outputs.matches == 'true'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
