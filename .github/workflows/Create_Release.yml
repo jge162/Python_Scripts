@@ -1,5 +1,3 @@
-name: Create Release
-
 on:
   pull_request:
     types: [closed, opened]
@@ -42,7 +40,6 @@ jobs:
         args: |
           NEW_TAG=$(echo ${{ env.RELEASE_TAG }}.$(($(echo "${{ steps.latest-release.outputs.latest_release }}" | sed "s/.*${{ env.RELEASE_TAG }}\.//") + 1)))
           echo "::set-env name=NEW_TAG::$NEW_TAG"
-
     - name: Create release
       if: steps.check-if-merged.outputs.stdout == 'true'
       uses: actions/create-release@v1
