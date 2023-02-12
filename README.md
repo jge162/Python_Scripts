@@ -32,7 +32,7 @@ command line entry in terminal PyCharm too.
 
 # Issues
 
-If you run accross any issues or bugs, please open a [issue](https://github.com/jge162/Python_Scripts/issues/new) in repo so I can fix and/or patch. Thanks.
+If you run accross any issues or bugs, please open an [issue](https://github.com/jge162/Python_Scripts/issues/new) in repo so I can fix and/or patch. Thanks.
 
 # License 
 
