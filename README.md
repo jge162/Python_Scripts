@@ -13,9 +13,9 @@ prefered IDE -> `I used PyCharm`
 After that you need to find the file path for you 
 folder and update it **accordingly.**
 
-Also note: Codes are setup to run on Mac osx builds (not PC)!
+Also note: Codes are setup to run on Mac osx builds `not PC`!
 
-Lastly, you can open a terminal window on your Mac and run `sudo python3 Master_script.py`
+Lastly, you can open a terminal window on your Mac and run `sudo python3 Master_Script.py`
 
 Or alternatively, you can just run `python3 Master_script.py` to execute all desired scripts in one 
 command line entry in terminal PyCharm too.
