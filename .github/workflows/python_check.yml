@@ -25,7 +25,7 @@ jobs:
     - run: |
         echo "Run, Build Application using scripts"
         python3 -c "
-        scripts = ['./Master_script.py']
+        scripts = [ './Master_script.py' ]
         for script in scripts:
             with open(script, 'r') as file:
                 exec(file.read())
