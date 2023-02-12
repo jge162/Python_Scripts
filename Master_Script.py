@@ -4,9 +4,9 @@ import subprocess
 scripts = ['/Users/home/Documents/GitHub/Python_Scripts/OpenChrome_Favorites.py',
            '/Users/home/Documents/GitHub/Python_Scripts/Organize_DocsFolder.py',
            '/Users/home/Documents/GitHub/Python_Scripts/Stock_Scrapper.py',
-           '/Users/home/Documents/GitHub/Python_Scripts/Organize_downloadFolder.py',
+           '/Users/home/Documents/GitHub/Python_Scripts/Organize_Downloads.py',
            '/Users/home/Documents/GitHub/Python_Scripts/ClearDNS_EmptyTrash.py',
-           '/Users/home/Documents/GitHub/Python_Scripts/Password_generator.py']
+           '/Users/home/Documents/GitHub/Python_Scripts/Password_Generator.py']
 
 # Loop through all scripts 
 for script in scripts:
