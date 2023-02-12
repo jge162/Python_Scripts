@@ -17,7 +17,7 @@ folder and update it **Accordingly.**
 
 # Supported systems
 
-Also note: Codes are setup to run on Mac OSX { run != `PC || Linux` }
+Also note: Codes are setup to run on `Mac OSX (supported_system != PC || Linux)`
 
 # Time to run the scripts
 
