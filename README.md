@@ -20,4 +20,4 @@ Lastly, you can open a terminal window on your Mac and run `sudo python3 Master_
 Or alternatively, you can just run `python3 Master_script.py` to execute all desired scripts in one 
 command line entry in terminal PyCharm too.
 
-[Release v0.3-Beta-2 link here](https://github.com/jge162/Python_Scripts/releases/tag/0.4-beta.3)
+[Release v0.4-Beta-3 link here](https://github.com/jge162/Python_Scripts/releases/tag/0.4-beta.3)
