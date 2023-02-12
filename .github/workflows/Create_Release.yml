@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Check if pull request was merged
       id: check-if-merged
-      uses: actions/bin/sh@v2
+      uses: actions/checkout@v3
       with:
         args: |
           if [ "$(jq '.pull_request.merged' "$GITHUB_EVENT_PATH")" == "true" ]; then
@@ -20,7 +20,7 @@ jobs:
 
     - name: Get latest release
       id: latest-release
-      uses: actions/bin/sh@v2
+      uses: actions/checkout@v3
       with:
         args: |
           latest_release=$(git describe --tags --abbrev=0)
@@ -28,7 +28,7 @@ jobs:
 
     - name: Increment release version
       id: increment-version
-      uses: actions/bin/sh@v2
+      uses: actions/checkout@v3
       with:
         args: |
           NEW_TAG=$(echo $(echo "$(steps.latest-release.outputs.latest_release)" | sed "s/.*v//") + 1)
