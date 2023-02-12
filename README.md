@@ -30,6 +30,10 @@ command line entry in terminal PyCharm too.
 
 [Release v0.4-Beta-3 link here](https://github.com/jge162/Python_Scripts/releases/tag/0.4-beta.3)
 
+# Issues
+
+If you run accross any issues or bugs, please open a issue in repo so I can fix and patch. Thanks.
+
 # License 
 
 jge162/Python_Scripts is licensed under the
