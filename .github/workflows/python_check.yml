@@ -1,7 +1,7 @@
 # run file to verify it compiles with no errors 
 # this code runs Master_script.py script to verify
 # all scripts running fine when called
-name: Run Python file
+name: Analyze (python)
 on:
   push:
     branches:
