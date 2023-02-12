@@ -7,17 +7,25 @@
 
 Scripts to help you get through your day faster!
 
+# Initial setup
+
 After downloading the repo, open the zip folder and use your
 prefered IDE [I used PyCharm](https://www.jetbrains.com/pycharm/download/#section=mac) 
 
 After that you need to find the file path for you 
-folder and update it **accordingly.**
+folder and update it **Accordingly.**
+
+# Supported systems
 
 Also note: Codes are setup to run on Mac osx builds `not PC`!
+
+# Time to run the scripts
 
 Lastly, you can open a terminal window on your Mac and run `sudo python3 Master_Script.py`
 
 Or alternatively, you can just run `python3 Master_script.py` to execute all desired scripts in one 
 command line entry in terminal PyCharm too.
+
+# Link to latest release
 
 [Release v0.4-Beta-3 link here](https://github.com/jge162/Python_Scripts/releases/tag/0.4-beta.3)
