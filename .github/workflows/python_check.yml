@@ -1,0 +1,32 @@
+# run file to verify it compiles with no errors 
+name: Run Python file
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - run: |
+        echo "Install required dependencies"
+        sudo apt-get update
+        sudo apt-get install python3
+    - run: |
+        echo "Run, Build Application using scripts"
+        python3 -c "
+        scripts = ['./ClearDNS_Emptytrash.py', './Empty_GmailSpam.py',
+        './Empty_Hotmail.py', './Master_script.py', './Empty_iCloudSpam.py', 
+        './OpenChrome_Favorites.py', './Organize_DocsFolder.py' ]
+        for script in scripts:
+            with open(script, 'r') as file:
+                exec(file.read())
+        "
