@@ -1,4 +1,4 @@
-# Python_Scripts
+# Python_Scripts:
 
 ![Total Files](https://img.shields.io/github/directory-file-count/jge162/Python_Scripts?color=4078c0&style=for-the-badge)
 ![File Size](https://img.shields.io/github/repo-size/jge162/Python_Scripts?color=4078c0&style=for-the-badge)
@@ -7,7 +7,7 @@
 
 Scripts to help you get through your day faster!
 
-# Initial setup
+# Initial setup:
 
 After downloading the repo, open the zip folder and use your
 prefered IDE. I personally used [PyCharm.](https://www.jetbrains.com/pycharm/download/#section=mac) 
@@ -15,26 +15,26 @@ prefered IDE. I personally used [PyCharm.](https://www.jetbrains.com/pycharm/dow
 After that you need to find the file path for you 
 folder and update it **Accordingly.**
 
-# Supported systems
+# Supported systems:
 
 Also note: Codes are setup to run on `Mac OSX (supported_system != PC || Linux)`
 
-# Time to run the scripts
+# Time to run the scripts:
 
 Lastly, you can open a terminal window on your Mac and run `sudo python3 Master_Script.py`
 
 Or alternatively, you can just run `python3 Master_script.py` to execute all desired scripts in one 
 command line entry in terminal PyCharm too.
 
-# Link to latest release
+# Link to latest release:
 
 [Release v0.4-Beta-3 link here](https://github.com/jge162/Python_Scripts/releases/tag/0.4-beta.3)
 
-# Issues
+# Issues:
 
 If you run accross any issues or bugs, please open an [issue](https://github.com/jge162/Python_Scripts/issues/new) in repo so I can fix and/or patch. Thanks.
 
-# License info
+# License info:
 
 jge162/Python_Scripts is licensed under the
 [GNU General Public License v3.0](https://github.com/jge162/Python_Scripts/blob/main/LICENSE)
