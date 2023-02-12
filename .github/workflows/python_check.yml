@@ -1,4 +1,6 @@
 # run file to verify it compiles with no errors 
+# this code runs Master_script.py script to verify
+# all scripts running fine when called
 name: Run Python file
 on:
   push:
@@ -23,7 +25,7 @@ jobs:
     - run: |
         echo "Run, Build Application using scripts"
         python3 -c "
-        scripts = ['./ClearDNS_Emptytrash.py', './Master_script.py' ]
+        scripts = ['./Master_script.py']
         for script in scripts:
             with open(script, 'r') as file:
                 exec(file.read())
