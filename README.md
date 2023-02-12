@@ -10,7 +10,7 @@ Scripts to help you get through your day faster!
 # Initial setup
 
 After downloading the repo, open the zip folder and use your
-prefered IDE. I personally used [PyCharm](https://www.jetbrains.com/pycharm/download/#section=mac) 
+prefered IDE. I personally used [PyCharm.](https://www.jetbrains.com/pycharm/download/#section=mac) 
 
 After that you need to find the file path for you 
 folder and update it **Accordingly.**
