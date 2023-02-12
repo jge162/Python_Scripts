@@ -6,7 +6,7 @@
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/jge162/Python_Scripts?color=red&label=Closed%20Pull%20requests&logo=GitHub&style=for-the-badge)
 
 Scripts to help you get through your day faster!
-Codes are setup to run on Mac osx builds (not PC)
+Codes are setup to run on Mac osx builds (not PC)!
 
 Just run `python3 Master_script.py` to execute all desired scripts in one 
 command line entry in terminal
