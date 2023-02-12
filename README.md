@@ -34,7 +34,7 @@ command line entry in terminal PyCharm too.
 
 If you run accross any issues or bugs, please open an [issue](https://github.com/jge162/Python_Scripts/issues/new) in repo so I can fix and/or patch. Thanks.
 
-# License 
+# License info
 
 jge162/Python_Scripts is licensed under the
 [GNU General Public License v3.0](https://github.com/jge162/Python_Scripts/blob/main/LICENSE)
