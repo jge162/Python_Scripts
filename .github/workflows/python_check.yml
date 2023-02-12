@@ -23,9 +23,7 @@ jobs:
     - run: |
         echo "Run, Build Application using scripts"
         python3 -c "
-        scripts = ['./ClearDNS_Emptytrash.py', './Empty_GmailSpam.py',
-        './Empty_Hotmail.py', './Master_script.py', './Empty_iCloudSpam.py', 
-        './OpenChrome_Favorites.py', './Organize_DocsFolder.py' ]
+        scripts = ['./ClearDNS_Emptytrash.py', './Master_script.py' ]
         for script in scripts:
             with open(script, 'r') as file:
                 exec(file.read())
