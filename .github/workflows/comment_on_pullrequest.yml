@@ -6,25 +6,16 @@ on:
 jobs:
   pr:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Comment_on_pullrequest
+        # if: ${{ (github.event.pull_request.user.login == 'jge162') && !(github.actor == 'dependabot[bot]') }}
         uses: mshick/add-pr-comment@v2
         with:
-          if: always()
           message: |
-            ## Description
-            Please include a summary of recommended changes and/or any issues fixed. 
-            List any dependencies that are required for you proposed changes.
-            ## Type of changes
-            - [ ] Bug fix (non-breaking change which fixes an issue)
-            - [ ] New feature (non-breaking change which adds functionality)
-            ## Checklist:
-            - [ ] My code follows the style guidelines of this project
-            - [ ] I have performed a self-review of my own code
-            - [ ] I have commented my code, particularly in hard-to-understand areas
-            - [ ] My changes generate no new warnings
-            - [ ] I have added tests that prove my fix is effective or that my feature works
+            Thank you for the Pull request. The team will review when time permits. **Please allow 24 hours**
           message-failure: |
             Uh oh!
+          message-id: add-pr-comment
+          repo-token: ${{ secrets.WORKFLOW_SECRET }}
+          allow-repeats: true
+          status: success
