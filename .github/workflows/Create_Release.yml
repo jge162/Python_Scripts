@@ -14,9 +14,9 @@ jobs:
       - name: Build and test code
         run: |
           # Build and test code here
-      - name: Determine SemVer version
+      - name: Bump Versionopspresso/action-version@master
         id: semver
-        uses: actions-semver/bump@v1.1.0
+        uses: Versionopspresso/action-version@master
         with:
           version: '1.0.0'
           prerelease: 'alpha'
