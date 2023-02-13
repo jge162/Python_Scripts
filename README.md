@@ -38,3 +38,4 @@ If you run accross any issues or bugs, please open an [issue](https://github.com
 
 jge162/Python_Scripts is licensed under the
 [GNU General Public License v3.0](https://github.com/jge162/Python_Scripts/blob/main/LICENSE)
+
