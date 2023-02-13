@@ -14,9 +14,9 @@ jobs:
       - name: Build and test code
         run: |
           # Build and test code here
-      - name: Bump Versionopspresso/action-version@master
+      - name: Bump 
         id: semver
-        uses: Versionopspresso/action-version@master
+        uses: opspresso/action-version@master
         with:
           version: '1.0.0'
           prerelease: 'alpha'
