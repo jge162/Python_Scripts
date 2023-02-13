@@ -7,32 +7,20 @@ on:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'alpha')
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build and test code
         run: |
           # Build and test code here
-      - name: Bump 
-        id: semver
-        uses: opspresso/action-version@master
-        with:
-          version: '1.0.0'
-          prerelease: 'alpha'
-          level: minor
-          preid: 'beta'
-          bump_type: 'premajor'
-          tag_prefix: 'v'
-          commit: true
-          message: 'Bump version to {{version}}'
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             build/*
-          tag_name: ${{ steps.semver.outputs.new_tag }}
+          tag_name: v2.0.0
           body: |
-            This is the release notes for ${{ steps.semver.outputs.new_tag }}
+            This is the release notes for v2.0.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_SECRET }}
