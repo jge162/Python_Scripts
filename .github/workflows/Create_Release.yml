@@ -14,13 +14,25 @@ jobs:
       - name: Build and test code
         run: |
           # Build and test code here
+      - name: Determine SemVer version
+        id: semver
+        uses: actions-semver/bump@v1.1.0
+        with:
+          version: '1.0.0'
+          prerelease: 'alpha'
+          level: minor
+          preid: 'beta'
+          bump_type: 'premajor'
+          tag_prefix: 'v'
+          commit: true
+          message: 'Bump version to {{version}}'
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             build/*
-          tag_name: v1.0.0
+          tag_name: ${{ steps.semver.outputs.new_tag }}
           body: |
-            This is the release notes for v1.0.0
+            This is the release notes for ${{ steps.semver.outputs.new_tag }}
         env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
