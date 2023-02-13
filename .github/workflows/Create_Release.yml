@@ -1,46 +1,26 @@
+name: Release on Pull Request Close
+
 on:
   pull_request:
     types: [closed]
 
 jobs:
-  create-release:
+  build-and-release:
     runs-on: ubuntu-latest
-
+    if: github.event.pull_request.merged == true
     steps:
-    - name: Check if pull request was merged
-      id: check-if-merged
-      uses: actions/checkout@v3
-      with:
-        args: |
-          if [ "$(jq '.pull_request.merged' "$GITHUB_EVENT_PATH")" == "true" ]; then
-            echo "true"
-          else
-            echo "false"
-          fi
-
-    - name: Get latest release
-      id: latest-release
-      uses: actions/checkout@v3
-      with:
-        args: |
-          latest_release=$(git describe --tags --abbrev=0)
-          echo "::set-output name=latest_release::$latest_release"
-
-    - name: Increment release version
-      id: increment-version
-      uses: actions/checkout@v3
-      with:
-        args: |
-          NEW_TAG=$(echo $(echo "$(steps.latest-release.outputs.latest_release)" | sed "s/.*v//") + 1)
-          echo "::set-env name=NEW_TAG::v$NEW_TAG"
-
-    - name: Create release
-      if: steps.check-if-merged.outputs.stdout == 'true'
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: v${{ env.NEW_TAG }}
-        release_name: Release v${{ env.NEW_TAG }}
-        draft: false
-        prerelease: false
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build and test code
+        run: |
+          # Build and test code here
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/*
+          tag_name: v1.0.0
+          body: |
+            This is the release notes for v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_SECRET }}
