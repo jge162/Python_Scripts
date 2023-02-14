@@ -28,7 +28,7 @@ command line entry in terminal PyCharm too.
 
 # Link to latest release:
 
-[Release v0.0.2 link here](https://github.com/jge162/Python_Scripts/releases/tag/0.4-beta.3)
+[Release v0.0.6 link here](https://github.com/jge162/Python_Scripts/releases/tag/v0.0.6)
 
 # Issues:
 
