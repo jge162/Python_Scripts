@@ -1,9 +1,14 @@
-# dependabot used to keep githu-actions up to date
-version: 2 
+version: 2
+
 updates:
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'weekly'
-      day: 'friday'
+      interval: "daily"
+      time: "00:00"
+    labels:
+      - "dependencies"
+
+
+
 
