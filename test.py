@@ -13,8 +13,10 @@ from pycoral.adapters import classify
 from periphery import GPIO, Serial
 
 
+# Define a Stepper class with an __init__ method that takes four pin arguments.
 class Stepper:
     def __init__(self, pin1, pin2, pin3, pin4):
+        # Initialize class attributes.
         self.direction = None
         self.current_speed = None
         self.pin1 = pin1
@@ -24,23 +26,30 @@ class Stepper:
         self.current_position = 0
         self.max_speed = 1500
 
+    # Define a method to set the maximum speed of the stepper.
     def setMaxSpeed(self, speed):
         self.max_speed = speed
 
+    # Define a method to set the current position of the stepper.
     def setCurrentPosition(self, position):
         self.current_position = position
 
+    # Define a method to get the current position of the stepper.
     def currentPosition(self):
         return self.current_position
 
+    # Define a method to set the current speed and direction of the stepper.
     def setSpeed(self, speed):
         self.current_speed = min(self.max_speed, abs(speed))
         self.direction = 1 if speed > 0 else -1
 
+    # Define a method to run the stepper at the current speed and direction.
     def runSpeed(self):
+        # Update the current position of the stepper.
         self.current_position += self.direction
         self.current_position %= 200
 
+        # Define a list of coil states for the stepper.
         coils = [
             (1, 0, 0, 1),
             (1, 0, 0, 0),
@@ -52,7 +61,10 @@ class Stepper:
             (0, 0, 0, 1),
         ]
 
+        # Get the current coil state based on the current position of the stepper.
         coil = coils[self.current_position % 8]
+
+        # Set the states of the stepper pins based on the current coil state.
         self.pin1.write(coil[0])
         self.pin2.write(coil[1])
         self.pin3.write(coil[2])
