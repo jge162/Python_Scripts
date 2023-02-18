@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispacth:
+  workflow_dispatch:
 
 jobs:
   build-and-analyze:
