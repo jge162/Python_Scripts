@@ -71,10 +71,11 @@ class Stepper:
         self.pin4.write(coil[3])
 
 
+# Define a setup function that initializes the four stepper motors.
 def setup():
     global stepper1, stepper2, stepper3, stepper4
 
-    # Initialize the pushbutton pin as an input:
+    # Define the pin configurations for each stepper motor.
     stepper1_pins = (
         GPIO("/dev/gpiochip4", 4, "out"), GPIO("/dev/gpiochip4", 17, "out"), GPIO("/dev/gpiochip4", 27, "out"),
         GPIO("/dev/gpiochip4", 22, "out"))
@@ -88,15 +89,18 @@ def setup():
         GPIO("/dev/gpiochip4", 12, "out"), GPIO("/dev/gpiochip4", 16, "out"), GPIO("/dev/gpiochip4", 20, "out"),
         GPIO("/dev/gpiochip4", 21, "out"))
 
+    # Initialize a Stepper object for each stepper motor.
     stepper1 = Stepper(*stepper1_pins)
     stepper2 = Stepper(*stepper2_pins)
     stepper3 = Stepper(*stepper3_pins)
     stepper4 = Stepper(*stepper4_pins)
 
+    # Set the maximum speed for each stepper motor.
     stepper1.setMaxSpeed(1500)
     stepper2.setMaxSpeed(1500)
     stepper3.setMaxSpeed(1500)
     stepper4.setMaxSpeed(1500)
+
 
     # Open the serial port
     ser = Serial("/dev/ttyUSB0", 9600, timeout=1)
