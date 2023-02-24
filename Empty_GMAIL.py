@@ -1,11 +1,19 @@
 
+# import imaplib
+
+# Connect to the Gmail IMAP server
+# mail = imaplib.IMAP4_SSL('imap.gmail.com')
+
+# Login to your Gmail account
+# mail.login( '${{ secrets.MY_GMAIL_ADDRESS }}', '${{ secrets.MY_GMAIL_SECRET }}')
 import imaplib
+import os
 
 # Connect to the Gmail IMAP server
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 
-# Login to your Gmail account
-mail.login( '${{ secrets.MY_GMAIL_ADDRESS }}', '${{ secrets.MY_GMAIL_SECRET }}')
+# Login to your Gmail account using the secrets
+mail.login(os.environ['MY_GMAIL_ADDRESS'].decode(), os.environ['MY_GMAIL_SECRET'].decode())
 
 # List the email folders in your account
 typ, data = mail.list()
