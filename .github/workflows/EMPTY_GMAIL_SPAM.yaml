@@ -5,7 +5,7 @@ on:
 
 env:
   MY_GMAIL_ADDRESS: ${{ secrets.MY_GMAIL_ADDRESS }}
-  MY_GMAIL_SECRET: ${{ secrets.MY_GMAIL_PASSWORD }}
+  MY_GMAIL_PASSWORD: ${{ secrets.MY_GMAIL_PASSWORD }}
 
 jobs:
   build-and-analyze:
