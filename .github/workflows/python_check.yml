@@ -30,7 +30,7 @@ jobs:
     - run: |
         echo "Run, Build Application using scripts"
         python3 -c "
-        scripts = [ './Empty_GMAIL.py']
+        scripts = [ './Password_Generator.py']
         for script in scripts:
             with open(script, 'r') as file:
                 exec(file.read())
