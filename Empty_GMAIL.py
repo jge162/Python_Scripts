@@ -5,7 +5,7 @@ import imaplib
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 
 # Login to your Gmail account
-mail.login('your_email@gmail.com', 'your_password')
+mail.login('MY_GMAIL_ADDRESS', 'MY_GMAIL_SECRET')
 
 # List the email folders in your account
 typ, data = mail.list()
