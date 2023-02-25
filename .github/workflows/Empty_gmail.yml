@@ -21,7 +21,7 @@ jobs:
           mail = imaplib.IMAP4_SSL('imap.gmail.com')
 
           # Login to your Gmail account
-          mail.login('YOUR_EMAIL@gmail.com', 'YOUR_GMAIL_PASSWORD')
+          mail.login('${{ secrets.MY_GMAIL_ADDRESS }}', '${{ secrets.MY_GMAIL_PASSWORD }}')
 
           # Select the spam folder
           mail.select('[Gmail]/Spam')
