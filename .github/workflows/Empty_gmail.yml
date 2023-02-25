@@ -43,7 +43,7 @@ jobs:
           print('All messages from the spam folder have been deleted successfully.')
           "
         env:
-          SMTP_SERVER: smtp.gmail.com
-          SMTP_PORT: 587
+          SMTP_SERVER: imap.gmail.com
+          SMTP_PORT: 993
           SMTP_USERNAME: ${{ secrets.MY_GMAIL_ADDRESS }}
           SMTP_PASSWORD: ${{ secrets.MY_GMAIL_PASSWORD }}
