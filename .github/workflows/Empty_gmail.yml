@@ -1,0 +1,48 @@
+name: Delete Spam Messages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  delete_spam_messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Delete spam messages
+        run: |
+          python -c "
+          import imaplib
+
+          # Connect to the Gmail IMAP server
+          mail = imaplib.IMAP4_SSL('imap.gmail.com')
+
+          # Login to your Gmail account
+          mail.login('YOUR_EMAIL@gmail.com', 'YOUR_GMAIL_PASSWORD')
+
+          # Select the spam folder
+          mail.select('[Gmail]/Spam')
+
+          # Search for all messages in the spam folder
+          typ, data = mail.search(None, 'ALL')
+
+          # Delete all messages in the spam folder
+          if data:
+              for num in data[0].split():
+                  mail.store(num, '+FLAGS', '\\Deleted')
+              mail.expunge()
+
+          # Close the mailbox and log out
+          mail.close()
+          mail.logout()
+
+          print('All messages from the spam folder have been deleted successfully.')
+          "
+        env:
+          SMTP_SERVER: smtp.gmail.com
+          SMTP_PORT: 587
+          SMTP_USERNAME: ${{ secrets.MY_GMAIL_ADDRESS }}
+          SMTP_PASSWORD: ${{ secrets.MY_GMAIL_PASSWORD }}
