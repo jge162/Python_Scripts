@@ -3,7 +3,7 @@ name: Delete Spam Messages
 on:
   schedule:
     - cron: '0 0 * * *'
-    # run daily at midtnight, to delete google spam mail
+    # run daily at midnight, to delete google spam mail
     
   workflow_dispatch:
 
