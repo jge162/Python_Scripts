@@ -1,9 +1,10 @@
 name: Delete Spam Messages
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *'
+    # run daily at midtnight, to delete google spam mail
+    
   workflow_dispatch:
 
 jobs:
