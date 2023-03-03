@@ -1,6 +1,8 @@
 name: Delete Spam Messages
 
 on:
+  push:
+  
   schedule:
     - cron: '0 0 * * *'
     # run daily at midnight, to delete google spam mail
