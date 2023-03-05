@@ -5,6 +5,8 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/jge162/Python_Scripts?color=red&logo=github&style=for-the-badge)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jge162/Python_Scripts?style=for-the-badge)
 
+[![Contributors](https://img.shields.io/github/contributors/jge162/Python_Scripts.svg)](https://github.com/jge162/Python_Scripts/graphs/contributors) [![Forks](https://img.shields.io/github/forks/jge162/Python_Scripts.svg)](https://github.com/jge162/Python_Scripts/network/members) [![Issues](https://img.shields.io/github/issues/jge162/Python_Scripts.svg)](https://github.com/jge162/Python_Scripts/issues) [![Pull Request](https://img.shields.io/github/issues-pr-closed-raw/jge162/Python_Scripts)](https://github.com/jge162/Python_Scripts/pulls)
+
 **Scripts to help you get through your day faster.**
 
 # Initial setup:
