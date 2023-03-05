@@ -14,6 +14,6 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: |
-            ## Welcome to the REPO, This is your first time Opening an Issue!
+            ## Hi! Welcome to Python_Scripts, this is your first time opening an issue!
         pr-message: |
-            ## Welcome to the REPO, This is your first time Opening an Pull Request!
+            ## Hello! Welcome to Python_Scripts, this is your first time opening a Pull Request!
