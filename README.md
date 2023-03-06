@@ -1,6 +1,6 @@
 # Python_Scripts:
 
-![Total Files](https://img.shields.io/github/directory-file-count/jge162/?color=4078c0&)
+![Total Files](https://img.shields.io/github/directory-file-count/jge162/Python_Scripts?color=4078c0&)
 ![File Size](https://img.shields.io/github/repo-size/jge162/Python_Scripts?color=4078c0&)
 ![GitHub Repo stars](https://img.shields.io/github/stars/jge162/Python_Scripts?color=red&logo=github&)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jge162/Python_Scripts?)
