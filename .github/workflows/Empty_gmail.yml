@@ -23,6 +23,7 @@ jobs:
           mail = imaplib.IMAP4_SSL('imap.gmail.com')
 
           # Login to your Gmail account
+          # if you fork this repo, you must create your own secrets for your email and password.
           mail.login('${{ secrets.MY_GMAIL_ADDRESS }}', '${{ secrets.MY_GMAIL_PASSWORD }}')
 
           # Select the spam folder
